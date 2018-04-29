@@ -1,0 +1,27 @@
+<div *ngIf="!loading">
+  <h1 class="text-center py-3">Team Name: {{fantasyTeamName}}</h1>
+  <table class="table text-center">
+    <thead>
+      <tr>  
+        <th scope="col">Name</th>
+        <th scope="col">Positions</th>
+        <th scope="col">Starting/On Bench</th>
+        <th scope="col">HeadShot</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of fantasyPlayers">
+        <td *ngIf="player.realPlayer.fullName !== null">{{player.realPlayer.fullName}}</td>
+        <td *ngIf="player.realPlayer.fullName === null">Player Name Not Available</td>
+        <td *ngIf="player.eligiblePositions">{{player.eligiblePositions}}</td>
+        <td *ngIf="!player.eligiblePositions">{{player.eligiblePositions}}</td>
+        <td *ngIf="player.isStarting">In Starting Line up</td>
+        <td *ngIf="!player.isStarting">On Bench</td>
+        <td *ngIf="player.realPlayer.imageUrl !== null"><img src="{{player.realPlayer.imageUrl}}" alt="Player Logo"/></td>
+        <td *ngIf="player.realPlayer.imageUrl === null">Image Not Available</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="loader" *ngIf="loading"></div>
