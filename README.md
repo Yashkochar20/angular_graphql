@@ -1,6 +1,7 @@
 ## Steps
-nvm use 
-npm install
+1) nvm use 
+
+2) npm install
 
 ## Development server
 
